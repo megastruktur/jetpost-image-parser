@@ -1,8 +1,8 @@
 # Installation
-1. Install `libzbar0`:
+1. Install `libzbar0` and `ssocr`:
    ```shell
     sudo apt update
-    sudo apt install libzbar0
+    sudo apt install libzbar0 ssocr
     ```
 2. Include the library via composer (from repo)
 ```json
