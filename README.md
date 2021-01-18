@@ -5,6 +5,14 @@
     sudo apt install libzbar0
     ```
 2. Include the library via composer (from repo)
+```json
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:megastruktur/jetpost-image-parser.git"
+        }
+    ],
+```
 
 # Usage example
 ```injectablephp
