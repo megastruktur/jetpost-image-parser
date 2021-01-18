@@ -1,0 +1,6 @@
+images/*
+!images/page1.png
+.idea
+QR.iml
+index.php
+vendor

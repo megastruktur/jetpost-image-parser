@@ -1,0 +1,18 @@
+{
+    "name": "megastruktur/jetpost",
+    "type": "library",
+    "require": {
+        "stefangabos/zebra_image": "^2.6"
+    },
+    "scripts": {
+        "post-package-install": [
+            "pip3 install -r requirements.txt"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "Jetpost\\": "src/"
+        }
+    },
+    "description": "Library for scan parsing"
+}
