@@ -171,7 +171,7 @@ class Parser {
 
     // Crop From
     $image->target_path = $this->imageFromPath;
-    $crop_x1 = $this->qr->left->left + 3 * $this->qr->left->width;
+    $crop_x1 = $this->qr->left->left;
     $crop_y1 = $this->qr->left->top + 1.2 * $this->qr->left->height;
     $crop_x2 = $this->qr->right->left + $this->qr->right->width;
     $crop_y2 = $this->qr->right->top + 1.6 * $this->qr->right->height;
@@ -180,7 +180,7 @@ class Parser {
     // Crop Full Message
     $image->target_path = $this->imageFullMessagePath;
     $crop_x1 = $this->qr->left->left;
-    $crop_y1 = $this->qr->left->top + 2 * $this->qr->left->height;
+    $crop_y1 = $this->qr->left->top + 1.6 * $this->qr->left->height;
     $crop_x2 = $this->qr->right->left + $this->qr->right->width;
     $crop_y2 = $this->qr->right->top + 16 * $this->qr->right->height;
     $image->crop($crop_x1, $crop_y1, $crop_x2, $crop_y2);

@@ -4,3 +4,4 @@ images/*
 QR.iml
 index.php
 vendor
+parser/
