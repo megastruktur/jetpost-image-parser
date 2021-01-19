@@ -66,8 +66,8 @@ class Parser {
     }
     $this->createImageWorkingDir();
 
-    // Get QR data to determine rotate degrees.
     $this->qr_parsed = $this->getQRData();
+    // Get QR data to determine rotate degrees.
     if ($this->qr_parsed) {
 
       // Prepare image
@@ -124,10 +124,12 @@ class Parser {
     }
 
     $command = escapeshellcmd($directory . '/qr_scanner.py ' . $image_path);
-    $qr_codes = json_decode(shell_exec($command));
+    $command_result = shell_exec($command);
+    $qr_codes = json_decode($command_result);
+
     $this->qr = $qr_codes ?? new stdClass();
 
-    return (bool) $this->qr;
+    return (bool) $qr_codes;
   }
 
   /**
@@ -148,14 +150,24 @@ class Parser {
    */
   protected function prepareImage()
   {
+    // Init library.
+    $image = new Zebra_Image();
+
+    // Check and rotate 180 deg if necessary.
+    if ($this->qr->left->data !== 'left top') {
+      $image->source_path = $this->imageInitialPath;
+      $image->target_path = $this->imageInitialPath;
+      $image->rotate(180);
+    }
+
+    $this->qr_parsed = $this->getQRData();
     // Rotate
     $rotate_degree = rad2deg(atan(abs($this->qr->right->top - $this->qr->left->top)/abs
       ($this->qr->right->left - $this->qr->left->left)));
-
-    $image = new Zebra_Image();
     $image->source_path = $this->imageInitialPath;
     $image->target_path = $this->imageRotatedPath;
-    $image->rotate(-$rotate_degree, '#FFFFFF');
+
+    $image->rotate(-$rotate_degree);
 
     // Get QR data after the rotation because we need to correct the coordinates.
     $this->getQRData(true);

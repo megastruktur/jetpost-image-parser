@@ -35,10 +35,9 @@ def main():
                 output["left"] = qrs[0]
                 output["right"] = qrs[1]
 
-
             print(json.dumps(output))
-        except:
-            print("Bad image")
+        except Exception as e:
+            print(str(e))
 
     else:
         print("No image provided")
