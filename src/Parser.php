@@ -229,7 +229,7 @@ class Parser {
       $phone_parsed = substr($output, 1);
     }
 
-    if ($phone_parsed) {
+    if ($phone_parsed && ctype_digit($phone_parsed)) {
       $this->phone_is_parsed = true;
     }
     else {

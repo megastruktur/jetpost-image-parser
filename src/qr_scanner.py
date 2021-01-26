@@ -16,6 +16,7 @@ def main():
             kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (3,3))
             img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
             dst = img
+            # dst = cv2.GaussianBlur(dst, (3, 3), 0)
             dst = cv2.morphologyEx(dst, cv2.MORPH_CLOSE, kernel)
             dst = cv2.morphologyEx(dst, cv2.MORPH_OPEN, kernel)
 
@@ -25,6 +26,7 @@ def main():
             # cv2.destroyAllWindows()
 
             decoded = decode(dst)
+            # print(decoded)
             qrs = []
             output = {
                 "left": {},

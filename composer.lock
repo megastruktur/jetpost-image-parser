@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c60d4a5ed3d44b7d2398abe55b1a8943",
+    "content-hash": "66596c4baa6279adc2581a9f24d37cb5",
     "packages": [
         {
             "name": "stefangabos/zebra_image",
@@ -65,7 +65,10 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-json": "*",
+        "ext-ctype": "*"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
 }

@@ -3,7 +3,8 @@
     "type": "library",
     "require": {
         "stefangabos/zebra_image": "^2.6",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-ctype": "*"
     },
     "scripts": {
         "post-package-install": [
